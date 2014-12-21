@@ -35,7 +35,8 @@
 		$('#puzzle-wrapper').crossword({
 			entryData: entryData,
 			showAnswers: false,
-			id: "my-crossword"
+			id: "my-crossword",
+			successCallback: function(){alert("Congrats!");}
 		});
 		
 	})

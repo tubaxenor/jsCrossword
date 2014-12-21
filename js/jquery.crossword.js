@@ -24,6 +24,7 @@
 			
 			var puzz = {}; // put data array in object literal to namespace it into safety
 			puzz.data = opts.entryData;
+			puzz.successCallback = opts.successCallback;
 			
 			// append clues markup after puzzle wrapper div
 			// This should be moved into a configuration object
@@ -33,8 +34,9 @@
 
 			
 			// initialize some variables
-			var $complete = $('<div class="overlay"><h1>' +croswordMessages.Congratulations + '</h1><div class="message"></div><a class="close" href="#">X</a></div>');
 			var message = '<p>'+croswordMessages.Completed+'</p>';
+			var $complete = $('<div class="overlay"><h1>' +croswordMessages.Congratulations + '</h1><div class="message">'+ message +'</div></div>');
+			
 
 			var tbl = ['<table id="puzzle" class="crossword">'];
 			var puzzEl = this;
@@ -450,22 +452,13 @@
 
 				},
 				triggerGameWon : function(){
-					var $dialog = $complete
-						.clone()
-						.hide()
-						.find('.message')
-							.html(message)
-						.end()
-						.find('.close')
-							.click(function(){
-								var $closeable = $(this).closest('.overlay')
-								$closeable.fadeOut(function(){
-									$closeable.remove();
-								});
-							})
-						.end();
-					$('body').append($dialog);
-					$dialog.fadeIn();
+					if(puzz.won)return;
+					puzz.won = true;
+					clues.append($complete);
+					if(puzz.successCallback!=undefined){
+						puzz.successCallback();
+					}
+						
 				},
 
 				/**
