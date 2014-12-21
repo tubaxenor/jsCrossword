@@ -17,6 +17,17 @@ body {
 	padding: 10px
 
 }
+.crossword-container input:focus{
+	background-color: rgba(255 , 255, 255, 0.95) !important;
+	border: 1px solid #aaa;
+	 -webkit-transition: 0.2s ease-in-out; -moz-transition: 0.2s ease-in-out; -o-transition: 0.2s ease-in-out; transition: 0.2s ease-in-out;
+	 -webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	transform: scale(1.25);
+	z-index: 9999999;
+
+	}
 #puzzle-wrapper a { text-decoration:none }
 #puzzle-wrapper a:hover,#puzzle-wrapper a:active { text-decoration:underline }
 table.crossword { 
