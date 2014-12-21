@@ -27,11 +27,11 @@
 			
 			// append clues markup after puzzle wrapper div
 			// This should be moved into a configuration object
-			this.after('<div id="puzzle-clues"><div class="across"><h2>Across</h2><ul></ul></div><div class="down"><h2>Down</h2><ul></ul></div></div>');
+			this.after('<div id="puzzle-clues"><div class="across"><h2>' +croswordMessages.Across + '</h2><ul></ul></div><div class="down"><h2>' + croswordMessages.Down + '</h2><ul></ul></div></div>');
 			
 			// initialize some variables
-			var $complete = $('<div class="overlay"><h1>Congratulations!</h1><div class="message"></div><a class="close" href="#">X</a></div>');
-			var message = '<p>You completed the crossword, well done!</p>';
+			var $complete = $('<div class="overlay"><h1>' +croswordMessages.Congratulations + '</h1><div class="message"></div><a class="close" href="#">X</a></div>');
+			var message = '<p>'+croswordMessages.Completed+'</p>';
 
 			var tbl = ['<table id="puzzle">'];
 			var puzzEl = this;
@@ -56,7 +56,7 @@
 			var GAME_DELIM='-';
 			var LOCALSTORAGE_KEY='crossword-';
 			var COOKIE_EXPIRY=21; //days
-			var HINT_CAPTION = 'Reveal a letter (% remaining)';
+			var HINT_CAPTION = croswordMessages.HintCaption;
 
 
 			/**
