@@ -363,12 +363,22 @@
 				adjustDims : function(){
 					var onResize = function(){
 						var $table = $(puzzEl).find('table');
+						
+						
+						
+						
 						var w = $table.width();
 						$table.height(w);
 						$table.css('font-size',w/400+'em');
 
 						var cellHeight = Math.ceil($table.find('input').width());
 						$table.find('input').height(cellHeight);
+						var tdwidth= $table.find('td:eq(0)').width();
+						console.log(tdwidth);
+						
+						$table.height(rows *tdwidth);
+						$table.find('td').height(tdwidth);
+						
 					};
 					$(window).resize(onResize);
 					onResize();
