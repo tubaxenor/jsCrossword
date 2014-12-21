@@ -27,13 +27,16 @@
 			
 			// append clues markup after puzzle wrapper div
 			// This should be moved into a configuration object
+			this.wrap( "<div class='crossword-container'></div>" );
+			this.after('<div style="clear:both"></div>');
 			this.after('<div id="puzzle-clues"><div class="across"><h2>' +croswordMessages.Across + '</h2><ul></ul></div><div class="down"><h2>' + croswordMessages.Down + '</h2><ul></ul></div></div>');
+
 			
 			// initialize some variables
 			var $complete = $('<div class="overlay"><h1>' +croswordMessages.Congratulations + '</h1><div class="message"></div><a class="close" href="#">X</a></div>');
 			var message = '<p>'+croswordMessages.Completed+'</p>';
 
-			var tbl = ['<table id="puzzle">'];
+			var tbl = ['<table id="puzzle" class="crossword">'];
 			var puzzEl = this;
 			var clues = $('#puzzle-clues');
 			var clueLiEls;
@@ -699,6 +702,7 @@
                                     Rot13 hides answers from *accidental* disclosure. Cheaters can still cheat :)
                                 */
                                 rot13: function(s) {
+                                return s;
                                     return (s ? s : this).split('').map(function(_)
                                     {
                                          if (!_.match(/[A-za-z]/)) return _;

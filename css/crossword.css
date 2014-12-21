@@ -5,11 +5,28 @@ body {
 	font: 62.5%/1.3em Helvetica, sans-serif;
 	width: 90.3%;
 	margin: 10px auto;
-	max-width:960px;
+	
+	background-color: #d2d2d2;
 }
-a { text-decoration:none }
-a:hover, a:active { text-decoration:underline }
-table { 
+.crossword-container{
+	background-color: rgba(255 , 255, 255, 0.95);
+	max-width:960px;
+	margin: auto;
+	border: 3 px solid #eee;
+	border-radius: 5px;
+	padding: 10px
+
+}
+#puzzle-wrapper a { text-decoration:none }
+#puzzle-wrapper a:hover,#puzzle-wrapper a:active { text-decoration:underline }
+table.crossword { 
+	background: #333 url('../gfx/ceiling-keith-pat.jpg') repeat;
+}
+table.crossword td {
+	background: inherit;
+}
+
+table.crossword { 
 	width: 100%;
 	border: 1px solid #cdcdcd;
 	border-spacing: 0; 
@@ -19,10 +36,10 @@ table {
 end #CeilingKeith */
 	border-collapse: collapse; 
 }
-table tr{
+table.crossword tr{
 	width: 100%;
 }
-table td {
+table.crossword td {
 	padding: 0;
 	margin: 0;
 	border: 1px solid #cdcdcd;
@@ -32,15 +49,15 @@ table td {
 end #CeilingKeith */
 	vertical-align: top;
 }
-table td div{
+table.crossword td div{
 	position:relative;
 }
 
-td.light{
+table.crossword td.light{
 	background: #f4f4f4
 }
 		
-td input {
+table.crossword td input {
 	padding: 0em;
 	border: transparent;
 	text-align: center;
@@ -58,11 +75,11 @@ td input {
 	*top:-2px;
 }
 
-td input:focus {
+table.crossword td input:focus {
 	background-color: #fff;
 }
 
-td span {
+table.crossword td span {
 	color: #444;
 	font-size: 0.8em;
 	position: absolute;
@@ -70,16 +87,16 @@ td span {
 	left: 1px;
 }
 
-input.done {
+table.crossword input.done {
 	font-weight: bold;
 	color: green;
 }
 
-.active,
-.clues-active {
+#puzzle-wrapper .active,
+#puzzle-wrapper .clues-active {
 	background-color: #ddd;
 }
-.clue-done {
+#puzzle-wrapper .clue-done {
 	color: #999;
 	text-decoration: line-through;
 }
@@ -88,6 +105,7 @@ input.done {
 	float: left;
 	width: 50%;
 	margin-right: 3%;
+	
 }
 #puzzle-clues {
 	float: left;
