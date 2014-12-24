@@ -104,10 +104,10 @@ table.crossword input.done {
 }
 
 #puzzle-wrapper .active,
-#puzzle-wrapper .clues-active {
+#puzzle-clues .clues-active {
 	background-color: #ddd;
 }
-#puzzle-wrapper .clue-done {
+#puzzle-clues .clue-done {
 	color: #999;
 	text-decoration: line-through;
 }
