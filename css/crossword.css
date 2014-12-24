@@ -31,7 +31,7 @@ body {
 #puzzle-wrapper a { text-decoration:none }
 #puzzle-wrapper a:hover,#puzzle-wrapper a:active { text-decoration:underline }
 table.crossword { 
-	background: #333 url('../gfx/ceiling-keith-pat.jpg') repeat;
+	background: #333;
 }
 table.crossword td {
 	background: inherit;
