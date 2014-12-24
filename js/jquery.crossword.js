@@ -214,7 +214,7 @@
 						$('.' + thisPuzz.orientation + ' ul').append(
 							$('<li tabindex="1" data-position="' + i + '"></li>')
 								.text(thisPuzz.clue)
-								.prepend($('<span class="words">').text(thisPuzz.words ? thisPuzz.words : thisPuzz.answer.length+' letters'))
+								.prepend($('<span class="words">').text(thisPuzz.words ? thisPuzz.words : thisPuzz.answer.length + ' ' + croswordMessages.Characters))
 								.prepend('<span class="position">'+thisPuzz.position+'</span> ')
 						);
 					}				
