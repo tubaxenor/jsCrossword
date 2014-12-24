@@ -379,7 +379,6 @@
 						var cellHeight = Math.ceil($table.find('input').width());
 						$table.find('input').height(cellHeight);
 						var tdwidth= $table.find('td:eq(0)').width();
-						console.log(tdwidth);
 						
 						$table.height(rows *tdwidth);
 						$table.find('td').height(tdwidth);
