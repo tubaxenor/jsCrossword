@@ -1,275 +1,321 @@
-// A javascript-enhanced crossword puzzle [c] Jesse Weisbeck, MIT/GPL 
 (function($) {
-	$(function() {
-		// provide crossword entries in an array of objects like the following example
-		// Position refers to the numerical order of an entry. Each position can have 
-		// two entries: an across entry and a down entry
-		var entryData = [
+  $(function() {
+    // provide crossword entries in an array of objects like the following example
+    // Position refers to the numerical order of an entry. Each position can have
+    // two entries: an across entry and a down entry
+    var entryData = [
         {
-          clue: "19 vertical confundida, iza mil",
-          answer: "Maiz",
+          clue: "NSA program that the government claims is justified by Section 702 of the FISA Amendments Act.",
+          answer: "cevfz",
+          rot13: true,
           position: 1,
           orientation: "across",
-          startx: 2,
-          starty: 1,
+          startx: 1,
+          starty: 1
         },
         {
-          clue: "19 vertical con número de quijada",
-          answer: "Pimenton",
-          position: 4,
+          clue: 'In its First Unitarian lawsuit, EFF argues the NSA is violating the First Amendment "Freedom of _________."',
+          answer: "nffbpvngvba",
+          rot13: true,
+          position: 3,
           orientation: "across",
-          startx: 7,
+          startx: 11,
           starty: 1,
+          disabled: true
         },
         {
-          clue: "Astado al norte se ríe de esa 16 horizontal",
-          answer: "Toronja",
+          clue: "PINWALE, PRISM, NUCLEON, MAINWAY and MARINA are all part of this NSA umbrella program.",
+          answer: "fgryynejvaq",
+          rot13: true,
+          position: 6,
+          orientation: "across",
+          startx: 4,
+          starty: 3,
+          disabled: true
+        },
+        {
+          clue: "Abbreviated name for the DOD electronic warfare division led by 23-Across.",
+          answer: "hfplorepbz",
+          rot13: true,
+          position: 8,
+          orientation: "across",
+          startx: 8,
+          starty: 5,
+          disabled: true
+        },
+        {
+          clue: "Member of Congress who offered an amendment to the defense bill to cut funding for the NSA’s operations under Section 215 of the Patriot Act.",
+          answer: "nznfu",
+          rot13: true,
           position: 10,
           orientation: "across",
-          startx: 1,
-          starty: 3,
+          startx: 3,
+          starty: 6,
+          disabled: true
         },
         {
-          clue: "Intente comerse mi diligencia",
-          answer: "Tramite",
+          clue: "Telecom corporation that whistleblower Mark Klein discovered allowed the NSA to tap into its system.",
+          answer: "ngg",
+          rot13: true,
           position: 11,
           orientation: "across",
-          startx: 9,
-          starty: 3,
-        },
-        {
-          clue: "Embutido hecho con condimento y bebidas fermentadas",
-          answer: "Salchichas",
-          position: 12,
-          orientation: "across",
-          startx: 1,
-          starty: 5,
-        },
-        {
-          clue: "En wiki tacha 16 horizontal",
-          answer: "Kiwi",
-          position: 13,
-          orientation: "across",
-          startx: 12,
-          starty: 5,
-        },
-        {
-          clue: "En maltrecho abad el sur es cosa ridícula",
-          answer: "Absurda",
-          position: 14,
-          orientation: "across",
           startx: 1,
           starty: 7,
+          disabled: true
         },
         {
-          clue: "Asa 16 horizontal",
-          answer: "Mango",
+          clue: "The NSA's British counterpart.",
+          answer: "tpud",
+          rot13: true,
           position: 15,
           orientation: "across",
-          startx: 11,
-          starty: 7,
+          startx: 1,
+          starty: 9,
+          disabled: true
         },
         {
-          clue: "Crece en los árboles cabeza de foca en la vía",
-          answer: "Fruta",
+          clue: "Senator from California who has long supported the NSA and is now offering a fake fix.",
+          answer: "srvafgrva",
+          rot13: true,
           position: 16,
           orientation: "across",
-          startx: 1,
+          startx: 7,
           starty: 9,
+          disabled: true
         },
         {
-          clue: "Ácido contra Regina desquiciada",
-          answer: "Vinagre",
+          clue: 'A global coalition of civil society groups say nations should adopt "_________ and Proportionate Principles" when it comes to electronic surveillance.',
+          answer: "arprffnel",
+          rot13: true,
+          position: 18,
+          orientation: "across",
+          startx: 3,
+          starty: 11,
+          disabled: true
+        },
+        {
+          clue: 'The Director of National Intelligence who gave the "least untruthful" answer to Congress.',
+          answer: "pynccre",
+          rot13: true,
           position: 19,
           orientation: "across",
-          startx: 9,
-          starty: 9,
-        },
-        {
-          clue: "Borracho sale uno a río español",
-          answer: "Ebro",
-          position: 22,
-          orientation: "across",
-          startx: 1,
+          startx: 15,
           starty: 11,
+          disabled: true
         },
         {
-          clue: "Borracha, me revuelvo cuando la primera entra en cuadrilla",
-          answer: "Embriagada",
+          clue: "Acronym for the law EFF used to force the release of thousands of pages of NSA-related documents.",
+          answer: "sbvn",
+          rot13: true,
+          position: 21,
+          orientation: "across",
+          startx: 7,
+          starty: 13,
+          disabled: true
+        },
+        {
+          clue: "Top ranking general at the NSA.",
+          answer: "nyrknaqre",
+          rot13: true,
           position: 23,
           orientation: "across",
-          startx: 6,
-          starty: 11,
-        },
-        {
-          clue: "En continente hay mil puntos de olvido",
-          answer: "Amnesia",
-          position: 25,
-          orientation: "across",
           startx: 1,
-          starty: 13,
+          starty: 15,
+          disabled: true
         },
         {
-          clue: "¿Cantamos todos juntos? Arregla sí o un no!",
-          answer: "Unisono",
-          position: 26,
-          orientation: "across",
-          startx: 9,
-          starty: 13,
-        },
-        {
-          clue: "Prueba pelo esa española",
-          answer: "Catalana",
+          clue: "Email provider that shut down after the Department of Justice demanded access to its encryption key.",
+          answer: "yninovg",
+          rot13: true,
           position: 27,
           orientation: "across",
-          startx: 2,
-          starty: 15,
+          startx: 14,
+          starty: 17,
+          disabled: true
         },
         {
-          clue: "El destino es buscar sin comenzar",
-          answer: "Azar",
+          clue: "She received EFF's 2013 Pioneer Award for her work on the Snowden documents.",
+          answer: "cbvgenf",
+          rot13: true,
           position: 28,
           orientation: "across",
-          startx: 11,
-          starty: 15,
+          startx: 4,
+          starty: 19,
+          disabled: true
         },
         {
-          clue: "Desarmo literas para construir facistoles",
-          answer: "Atriles",
+          clue: "Senator from Oregon who, along with 26-down, has been warning the public about NSA spying for years.",
+          answer: "jlqra",
+          rot13: true,
+          position: 29,
+          orientation: "across",
+          startx: 16,
+          starty: 19,
+          disabled: true
+        },
+        {
+          clue: "Term for when an NSA worker uses electronic surveillance tools to spy on a romantic interest or ex-lover.",
+          answer: "ybirvag",
+          rot13: true,
+          position: 30,
+          orientation: "across",
+          startx: 9,
+          starty: 21,
+          disabled: true
+        },
+
+
+
+        {
+          clue: "Term for telephone call records that includes when you made a call, to whom, and for how long, but not the conversation itself.",
+          answer: "zrgnqngn",
+          rot13: true,
           position: 2,
           orientation: "down",
-          startx: 3,
-          starty: 1,
-        },
-        {
-          clue: "19 vertical para última mujer que está con uno en un lapso de tiempo",
-          answer: "Zanahoria",
-          position: 3,
-          orientation: "down",
           startx: 5,
-          starty: 1,
+          starty: 1
         },
         {
-          clue: "Alisa lámina",
-          answer: "Plancha",
+          clue: "He authored the Patriot Act and says the NSA has stretched the law farther than Congress ever intended.",
+          answer: "frafraoeraare",
+          rot13: true,
           position: 4,
           orientation: "down",
-          startx: 7,
+          startx: 13,
           starty: 1,
+          disabled: true
         },
         {
-          clue: "Con mil asalta los sentidos!",
-          answer: "Matraca",
+          clue: "EGOTISTICALGIRAFFE and EGOTISTICALGOAT are both NSA terms associated with undermining this anonymity tool.",
+          answer: "gbe",
+          rot13: true,
           position: 5,
           orientation: "down",
-          startx: 9,
+          startx: 18,
           starty: 1,
+          disabled: true
         },
         {
-          clue: "Montón de paja fantástico sin la General Electric",
-          answer: "Nial",
-          position: 6,
-          orientation: "down",
-          startx: 11,
-          starty: 1,
-        },
-        {
-          clue: "Celebran que nada termina con abrazo de espías",
-          answer: "Ofician",
+          clue: "In October, the Stop _______ Us coalition marched in DC.",
+          answer: "jngpuvat",
+          rot13: true,
           position: 7,
           orientation: "down",
-          startx: 13,
-          starty: 1,
+          startx: 3,
+          starty: 5,
+          disabled: true
         },
         {
-          clue: "Encuentra escondido algo gratis? Barato!",
-          answer: "Atisba",
-          position: 8,
-          orientation: "down",
-          startx: 1,
-          starty: 2,
-        },
-        {
-          clue: "19 vertical del pequeño Pepe?",
-          answer: "Pepino",
+          clue: "NSA codename for program that tapped into Google and Yahoo data centers abroad.",
+          answer: "zhfphyne",
+          rot13: true,
           position: 9,
           orientation: "down",
-          startx: 15,
-          starty: 2,
+          startx: 17,
+          starty: 5,
+          disabled: true
         },
         {
-          clue: "Envía al río primera 16 horizontal",
-          answer: "Mandarina",
-          position: 15,
+          clue: "The NSA's computer tool, with dropdown menus and filters, for searching Internet activity.",
+          answer: "kxrlfpber",
+          rot13: true,
+          position: 12,
           orientation: "down",
-          startx: 11,
+          startx: 8,
           starty: 7,
+          disabled: true
         },
         {
-          clue: "Taladros de 16 horizontales",
-          answer: "Fresas",
-          position: 16,
+          clue: "Acronym for games like World of Warcraft that the NSA infiltrated.",
+          answer: "zzbect",
+          rot13: true,
+          position: 13,
           orientation: "down",
-          startx: 1,
-          starty: 9,
+          startx: 19,
+          starty: 7,
+          disabled: true
         },
         {
-          clue: "Interminable 6 sostiene a cura ebrio en país europeo",
-          answer: "Ucrania",
+          clue: "The _____ Committee investigated the NSA over similar abuses in the 1970s.",
+          answer: "puhepu",
+          rot13: true,
+          position: 14,
+          orientation: "down",
+          startx: 21,
+          starty: 8,
+          disabled: true
+        },
+        {
+          clue: "Private contractor where whistleblower Edward Snowden worked (for short).",
+          answer: "obbmnyyra",
+          rot13: true,
           position: 17,
           orientation: "down",
-          startx: 3,
-          starty: 9,
+          startx: 1,
+          starty: 11,
+          disabled: true
         },
         {
-          clue: "A mil protege con biombo",
-          answer: "Mampara",
-          position: 18,
-          orientation: "down",
-          startx: 7,
-          starty: 9,
-        },
-        {
-          clue: "Observar despiadada que sale de la tierra",
-          answer: "Verdura",
-          position: 19,
-          orientation: "down",
-          startx: 9,
-          starty: 9,
-        },
-        {
-          clue: "Estupenda onda? Mentira!",
-          answer: "Guayola",
+          clue: "Airport where British police detained journalist Glenn Greenwald's partner, David Miranda, for nine hours under terrorism laws.",
+          answer: "urnguebj",
+          rot13: true,
           position: 20,
           orientation: "down",
-          startx: 13,
-          starty: 9,
+          startx: 5,
+          starty: 13,
+          disabled: true
         },
         {
-          clue: "Hernando está entre puntos pequeños",
-          answer: "Enanos",
-          position: 21,
+          clue: "Presiding judge of the FISA Court.",
+          answer: "jnygba",
+          rot13: true,
+          position: 22,
           orientation: "down",
-          startx: 15,
-          starty: 9,
+          startx: 20,
+          starty: 14,
+          done: true
         },
         {
-          clue: "Carta alta pa’ Cruz",
-          answer: "Aspa",
+          clue: 'US, UK, Canada, New Zealand and Australia are also known as the "Five ____."',
+          answer: "rlrf",
+          rot13: true,
           position: 24,
           orientation: "down",
-          startx: 5,
-          starty: 12,
+          startx: 3,
+          starty: 15,
+          disabled: true
+        },
+        {
+          clue: "Codename for NSA program to undermine and break encryption.",
+          answer: "ohyyeha",
+          rot13: true,
+          position: 25,
+          orientation: "down",
+          startx: 14,
+          starty: 15,
+          disabled: true
+        },
+        {
+          clue: "Senator from Colorado who, along with 29-Across, has been warning the public about NSA spying for years.",
+          answer: "hqnyy",
+          rot13: true,
+          position: 26,
+          orientation: "down",
+          startx: 9,
+          starty: 17,
+          disabled: true
         }
-			];
-	
-		$('#puzzle-wrapper').crossword({
-			entryData: entryData,
-			showAnswers: false,
-			id: "my-crossword",
-			successCallback: function(){alert("Congratulations!");}
-		});
-		
-	})
-	
+      ]
+                // Note: you can change showAnswers to true, but #CeilingKeith would know
+    $('#puzzle-wrapper').crossword({
+      entryData: entryData,
+      showAnswers: false,
+      id: "nsa-crossword",
+      wordCompleteCallback: function(item) {
+        console.log(item);
+        alert("No." + item.position + " completed! (ajax callback)")
+      }
+    });
+  })
+
 })(jQuery)
